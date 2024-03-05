@@ -65,7 +65,7 @@ def Kelvin_conversion(daily_temp):
 
 #3 Function to inform user of converted values?
 
+def report_
 
-print(record_temp)
 
 
