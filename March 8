@@ -1,0 +1,80 @@
+# Tempature Conversions, Averaging, and Min/Max Calculator
+# S. Jarrett - Assignment
+# March 1 - 7, 2024
+#
+# Task: Take 7 temperature readings from the user (C, F or K)
+# and report back the average for the week and the min and max
+# values for the week in all temperature scales (C, F, and K).
+#
+# Use for loops, Conditionals, lists, input, casting, comments and anything else
+# from CS20 that we have discussed in class to date.
+# FUNCITIONS ARE EXTREMELY IMPORTANT!!
+#############################
+
+# (32°F − 32) × 5/9 + 273.15 = 273.15K <-- F to K
+# (32°F − 32) × 5/9 = °C <-- F to C
+
+# 32°C + 273.15 = 305.15K <-- C to K
+# (32°C × 9/5) + 32 = 89.6°F <-- C to F
+
+# (32K − 273.15) × 9/5 + 32 = -402.1°F <-- K to F
+# 32K − 273.15 = -241.1°C <-- K to C
+
+
+
+
+#1 Function to determine incoming unit of user input (C, F or K)
+def record_temp():
+    daily_temp = int(input("please choose what is the numberic temperature: ") ) # my attempt -> temp = input("Give me a number for a temperature reading:", input( ) )
+    daily_unit = input("and the unit of measurement value?: ") 
+    temp_conversion(daily_temp, daily_unit)
+
+
+
+#2 Function to convert value to all units required
+def temp_conversion(daily_temp, daily_unit):
+    if daily_unit.upper() == "c":
+        #Converts to F and K
+        celsius_conversion(daily_temp)
+            
+    if daily_unit.upper() == "f":
+        #converts to C and K
+        fahrenheit_conversion(daily_temp)
+        
+    if daily_unit.upper() == "k":
+        #converts to C and F
+        Kelvin_conversion(daily_temp)
+        
+def celsius_conversion(daily_temp): 
+    #math for conversions here
+    daily_cel = daily_temp
+    daily_fah = ( (daily_cel - 32) * (5/9) )
+    daily_kel = (daily_cel - 273.15)
+    daily_temps = [daily_cel, daily_fah, daily_kel]
+    return daily_temps
+    
+
+def fahrenheit_conversion(daily_temp):
+    #math for conversions here
+    daily_fah = daily_temp
+    daily_cel = (daily_fah - 32) * (5/9)
+    daily_kel = (daily_cel - 273.15)
+   
+    
+def Kelvin_conversion(daily_temp):
+    #math for conversions here
+    daily_kel = daily_temp
+    daily_cel = daily_kel + 273.15
+    daily_fah = ( (daily_cel * (9/5) )) + 32
+    
+
+#3 Function to inform user of converted values?
+
+
+print("WHAT ARE YOU DOING IN MY HOUSE?! WHO ARE YOU!!")
+print("oh? your here to caculate temperatures... i guess we can.")
+daily_temps = record_temp()
+print(daily_temps)
+
+
+#Sunday: 3C , Monday: 5C, ...... Sat: 10C
